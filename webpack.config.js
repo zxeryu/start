@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   mode: "production",
 
@@ -28,6 +30,10 @@ module.exports = {
       },
     ],
   },
+
+  plugins: [
+      new HtmlWebpackPlugin(),
+  ],
 
   // When importing a module whose path matches one of the following, just
   // assume a corresponding global variable exists and use that instead.

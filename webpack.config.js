@@ -32,7 +32,11 @@ module.exports = {
   },
 
   plugins: [
-      new HtmlWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        title: "Webpack App",
+        filename: "index.html",
+        template: "./index.html"
+      }),
   ],
 
   // When importing a module whose path matches one of the following, just

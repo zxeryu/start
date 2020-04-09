@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "test": "yarn tsc"
+    "test": "yarn tsc",
+    "tsc": "tsc --incremental --diagnostics -p tsconfig.json"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "yarn tsc"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -27,6 +28,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
     "prettier": "^2.0.2",
+    "pretty-quick": "^2.0.1",
     "source-map-loader": "^0.2.4",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
@@ -42,5 +44,22 @@
     "arrowParens": "always",
     "printWidth": 120,
     "jsxBracketSameLine": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && pretty-quick --staged",
+      "pre-push": "yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --quiet"
+    ]
   }
 }

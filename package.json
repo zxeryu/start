@@ -7,7 +7,10 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "test": "yarn tsc",
-    "tsc": "tsc --incremental --diagnostics -p tsconfig.json"
+    "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
+    "lerna-init": "lerna init",
+    "lerna-install": "lerna bootstrap",
+    "lerna-publish": "lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

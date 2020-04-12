@@ -7,7 +7,10 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "test": "yarn tsc",
-    "tsc": "tsc --incremental --diagnostics -p tsconfig.json"
+    "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
+    "lerna-init": "lerna init --independent",
+    "lerna-install": "lerna bootstrap",
+    "lerna-publish": "lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -27,6 +30,7 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "html-webpack-plugin": "^4.0.1",
     "husky": "^4.2.3",
+    "lerna": "^3.20.2",
     "lint-staged": "^10.1.2",
     "prettier": "^2.0.2",
     "pretty-quick": "^2.0.1",

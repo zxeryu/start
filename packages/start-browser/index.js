@@ -4,5 +4,6 @@ module.exports = {
     const arr = ["lerna", "start-browser"];
 
     console.log(join(arr, ","));
+    console.log("second");
   },
 };

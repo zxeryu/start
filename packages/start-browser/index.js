@@ -8,5 +8,6 @@ module.exports = {
     console.log("third");
     console.log("fourth");
     console.log("demo5");
+    console.log("demo6");
   },
 };

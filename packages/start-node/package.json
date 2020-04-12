@@ -1,6 +1,6 @@
 {
   "name": "@start/start-node",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "license": "MIT",
   "gitHead": "c52a3e436257ea0748b689bdc0e4b5d8d960cab0"

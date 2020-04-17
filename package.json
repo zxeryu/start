@@ -10,7 +10,8 @@
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
     "lerna-init": "lerna init --independent",
     "lerna-install": "lerna bootstrap",
-    "lerna-publish": "lerna publish"
+    "lerna-publish": "lerna publish",
+    "clean": "rm -rf packages/*/node_modules"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

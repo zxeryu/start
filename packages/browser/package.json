@@ -1,6 +1,6 @@
 {
-  "name": "zx-browser",
-  "version": "0.0.3",
+  "name": "@eryu-env/browser",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
@@ -24,7 +24,6 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "html-webpack-plugin": "^4.0.1",
     "husky": "^4.2.3",
-    "lerna": "^3.20.2",
     "lint-staged": "^10.1.2",
     "prettier": "^2.0.2",
     "pretty-quick": "^2.0.1",

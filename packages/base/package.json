@@ -1,5 +1,5 @@
 {
-  "name": "@eryu-env/base",
+  "name": "eryu-env-base",
   "version": "0.0.1",
   "description": " base configuration for git project",
   "main": "index.js",

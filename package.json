@@ -10,12 +10,14 @@
     "bootstrap": "lerna bootstrap",
     "publish": "lerna publish from-package -y",
     "clean": "rm -rf packages/*/node_modules",
-    "release": "lerna version --conventional-commits --no-commit-hooks"
+    "release": "lerna version --conventional-commits --no-commit-hooks",
+    "build": "rollup src/main.js -f cjs -o build/bundle.js"
   },
   "devDependencies": {
     "eryu-env-base": "^0.0.1",
     "jest": "^25.3.0",
-    "lerna": "^3.20.2"
+    "lerna": "^3.20.2",
+    "rollup": "^2.6.1"
   },
   "prettier": {
     "trailingComma": "all",

@@ -1,18 +1,16 @@
 {
   "name": "eryu-env-eslint-config",
-  "version": "0.0.1",
-  "description": "eslint configuration for ts environment",
-  "main": "index.js",
+  "version": "0.0.2",
+  "main": "eslint.config.js",
   "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "eslint": "6.8.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "3.x"
+  },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0"
   }
 }

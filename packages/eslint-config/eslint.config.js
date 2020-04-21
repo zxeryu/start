@@ -1,7 +1,5 @@
-"use strict";
-
 module.exports = {
-  parser: "@typescript-eslint/parser",
+  parser: require.resolve("@typescript-eslint/parser"),
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -10,23 +8,9 @@ module.exports = {
     sourceType: "module",
   },
   env: {
-    browser: true,
-    commonjs: true,
     es6: true,
-    jest: true,
-    node: true,
   },
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
-  plugins: [
-    "@typescript-eslint/eslint-plugin",
-    "eslint-plugin-react",
-    "eslint-plugin-react-hooks",
-    "eslint-plugin-import",
-  ],
+  plugins: ["@typescript-eslint/eslint-plugin", "eslint-plugin-react", "eslint-plugin-react-hooks"],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",

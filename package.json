@@ -8,7 +8,7 @@
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
     "lerna-init": "lerna init --independent",
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish from-package -y",
+    "lerna-publish": "lerna publish from-package -y",
     "clean": "rm -rf packages/*/node_modules",
     "release": "lerna version --conventional-commits --no-commit-hooks",
     "build": "rollup src/main.js -f cjs -o build/bundle.js"

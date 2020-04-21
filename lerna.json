@@ -1,5 +1,5 @@
 {
-  "packages": ["packages/*", "@zxeryu-env/*"],
+  "packages": ["packages/*", "@start-env/*"],
   "version": "independent",
   "npmClient": "yarn",
   "command": {

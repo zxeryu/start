@@ -1,0 +1,16 @@
+{
+  "name": "@zxeryu-env/esling-config",
+  "version": "0.0.1",
+  "main": "eslint.config.js",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "eslint": "6.8.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "3.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

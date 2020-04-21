@@ -1,5 +1,5 @@
 {
-  "name": "@start-env/esling-config",
+  "name": "@start-env/eslint-config",
   "version": "0.0.1",
   "main": "eslint.config.js",
   "license": "MIT",
@@ -13,5 +13,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "c16c9b33e8d36238076ee8c7625df75aa3e77f03"
+  "gitHead": "e034a252937ead99497ea94853d422a77d4e4ac7"
 }

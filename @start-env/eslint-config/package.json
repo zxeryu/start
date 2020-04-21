@@ -1,7 +1,7 @@
 {
   "name": "@start-env/eslint-config",
   "version": "0.0.1",
-  "main": "eslint.config.js",
+  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "2.x",

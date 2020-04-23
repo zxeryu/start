@@ -10,7 +10,12 @@ module.exports = {
   env: {
     es6: true,
   },
-  plugins: ["@typescript-eslint/eslint-plugin", "eslint-plugin-react", "eslint-plugin-react-hooks"],
+  plugins: [
+    "@typescript-eslint/eslint-plugin",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-import",
+  ],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -19,6 +24,11 @@ module.exports = {
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
   ],
   rules: {
+    // https://github.com/benmosher/eslint-plugin-import/tree/master/docs/rules
+    "import/first": "error",
+    "import/no-amd": "error",
+    "import/no-webpack-loader-syntax": "error",
+
     "react/display-name": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",

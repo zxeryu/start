@@ -5,12 +5,17 @@
   "main": "index.js",
   "license": "MIT",
   "workspaces": [
-    "@bridge-start/*"
+    "@bridge-start/*",
+    "example/*"
   ],
   "scripts": {
-    "start": "webpack-dev-server"
+    "bootstrap": "lerna bootstrap",
+    "start": "webpack-dev-server",
+    "micro-father": "cd example/micro-father && webpack-dev-server",
+    "micro-child": "cd example/micro-child && webpack-dev-server"
   },
   "dependencies": {
+    "history": "^5.0.0",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

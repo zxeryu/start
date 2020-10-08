@@ -1,23 +1,23 @@
 import { registerMicroApps, start, setDefaultMountApp, runAfterFirstMounted, prefetchApps } from "qiankun";
 import { RegistrableApp } from "qiankun/es/interfaces";
-import { dispatch } from "./events";
+import { sendLifecycleEvent } from "./events";
 
 export const registerApps = (apps: Array<RegistrableApp>) => {
   registerMicroApps(apps, {
     beforeLoad: (app) => {
-      return Promise.resolve(dispatch("BeforeLoad", app));
+      return Promise.resolve(sendLifecycleEvent("BeforeLoad", app));
     },
     beforeMount: (app) => {
-      return Promise.resolve(dispatch("BeforeMount", app));
+      return Promise.resolve(sendLifecycleEvent("BeforeMount", app));
     },
     afterMount: (app) => {
-      return Promise.resolve(dispatch("AfterMount", app));
+      return Promise.resolve(sendLifecycleEvent("AfterMount", app));
     },
     beforeUnmount: (app) => {
-      return Promise.resolve(dispatch("BeforeUnmount", app));
+      return Promise.resolve(sendLifecycleEvent("BeforeUnmount", app));
     },
     afterUnmount: (app) => {
-      return Promise.resolve(dispatch("AfterUnmount", app));
+      return Promise.resolve(sendLifecycleEvent("AfterUnmount", app));
     },
   });
 };

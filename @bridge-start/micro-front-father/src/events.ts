@@ -1,4 +1,4 @@
-import { initGlobalState } from "qiankun";
+import { initGlobalState, LoadableApp } from "qiankun";
 import { indexOf, forEach, isEmpty, get, map } from "lodash";
 
 const { onGlobalStateChange, setGlobalState } = initGlobalState();
@@ -6,6 +6,7 @@ const { onGlobalStateChange, setGlobalState } = initGlobalState();
 export interface IData {
   name: string;
   params?: object;
+  from?: "father" | "child";
 }
 
 export interface IHandler {
@@ -45,7 +46,13 @@ export const removeListener = (type: TEventType, callback: IHandler["callback"])
   }
 };
 
-export const dispatch = (type: TEventType, data: IData) => {
+/**
+ * 只分发child发送的事件
+ */
+const dispatch = (type: TEventType, data: IData) => {
+  if (data.from !== "child") {
+    return;
+  }
   forEach(handlers[type], ({ callback, name }) => {
     if (!isEmpty(name)) {
       if (name === get(data, "name")) {
@@ -58,20 +65,34 @@ export const dispatch = (type: TEventType, data: IData) => {
 };
 
 onGlobalStateChange((value, _) => {
+  console.log("############### father global", value);
   dispatch("GlobalState", value as IData);
 });
 
-export const registerGlobalStateListener = (callback: IHandler["callback"], name?: IHandler["name"]) => {
+export const registerChildStateListener = (callback: IHandler["callback"], name?: IHandler["name"]) => {
   registerListener("GlobalState", callback, name);
 };
 
-export const removeGlobalStateListener = (callback: IHandler["callback"]) => {
+export const removeChildStateListener = (callback: IHandler["callback"]) => {
   removeListener("GlobalState", callback);
 };
 
-export const dispatchGlobalState = (data: IData) => {
+const dispatchGlobalState = (data: IData) => {
   if (isEmpty(get(data, "name"))) {
     throw new Error('data must have "name"');
   }
-  setGlobalState(data);
+  setTimeout(() => {
+    setGlobalState(data);
+  }, 0);
+};
+
+export const sendStateToChild = (data: IData) => {
+  data.from = "father";
+  dispatchGlobalState(data);
+};
+
+export const sendLifecycleEvent = (type: TEventType, app: LoadableApp) => {
+  forEach(handlers[type], ({ callback }) => {
+    callback(app);
+  });
 };

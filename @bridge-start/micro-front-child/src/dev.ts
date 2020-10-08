@@ -7,6 +7,7 @@ let returnCallback: IHandler["callback"] | undefined = undefined;
 
 const props: IQianKunStateProps = {
   setGlobalState: (data: IData) => {
+    data.from = "father";
     callback && callback(data);
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     returnCallback && returnCallback(data);

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {
-  dispatchGlobalState,
+  sendStateToFather,
   IData,
-  registerGlobalStateListener,
-  removeGlobalStateListener,
+  registerFatherStateListener,
+  removeFatherStateListener,
 } from "@bridge-start/micro-front-child";
 
 export const ReceiveDemo = () => {
@@ -12,9 +12,9 @@ export const ReceiveDemo = () => {
     const handleInitParams = (data: IData) => {
       setInit(data.params);
     };
-    registerGlobalStateListener(handleInitParams, "init");
+    registerFatherStateListener(handleInitParams, "init");
     return () => {
-      removeGlobalStateListener(handleInitParams);
+      removeFatherStateListener(handleInitParams);
     };
   }, []);
   return (
@@ -31,9 +31,9 @@ export const InteractDemo = () => {
     const handleLoginParams = (data: IData) => {
       setLogin(data.params);
     };
-    registerGlobalStateListener(handleLoginParams, "login");
+    registerFatherStateListener(handleLoginParams, "login");
     return () => {
-      removeGlobalStateListener(handleLoginParams);
+      removeFatherStateListener(handleLoginParams);
     };
   }, []);
   return (
@@ -42,7 +42,7 @@ export const InteractDemo = () => {
         与Father互动{" "}
         <button
           onClick={() => {
-            dispatchGlobalState({ name: "login-request" });
+            sendStateToFather({ name: "login-request" });
           }}>
           获取登录信息
         </button>

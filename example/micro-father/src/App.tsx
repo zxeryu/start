@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import {
-  dispatchGlobalState,
-  registerGlobalStateListener,
+  sendStateToChild,
+  registerChildStateListener,
   registerListener,
-  removeGlobalStateListener,
+  removeChildStateListener,
   removeListener,
 } from "@bridge-start/micro-front-father";
 import { createBrowserHistory } from "history";
@@ -13,7 +13,7 @@ const history = createBrowserHistory();
 const SendWhileMount = () => {
   useEffect(() => {
     const handleMount = () => {
-      dispatchGlobalState({ name: "init", params: { name: "zx", from: "father" } });
+      sendStateToChild({ name: "init", params: { name: "zx", from: "father" } });
     };
     registerListener("AfterMount", handleMount);
     return () => {
@@ -25,15 +25,15 @@ const SendWhileMount = () => {
 
 const FeedbackDemo = () => {
   const handle = () => {
-    dispatchGlobalState({
+    sendStateToChild({
       name: "login",
       params: { token: `token${new Date().getTime()}`, from: "father" },
     });
   };
   useEffect(() => {
-    registerGlobalStateListener(handle, "login-request");
+    registerChildStateListener(handle, "login-request");
     return () => {
-      removeGlobalStateListener(handle);
+      removeChildStateListener(handle);
     };
   }, []);
   return null;

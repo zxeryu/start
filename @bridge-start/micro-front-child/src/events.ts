@@ -3,6 +3,7 @@ import { indexOf, forEach, map, get, set } from "lodash";
 export interface IData {
   name: string;
   params?: object;
+  from?: "father" | "child";
 }
 
 export interface IQianKunStateProps {
@@ -54,6 +55,9 @@ const removeListener = (type: string, callback: IHandler["callback"]) => {
 };
 
 const dispatch = (type: string, data: IData) => {
+  if (data.from !== "father") {
+    return;
+  }
   let isConsume = false;
   forEach(handlers[type], ({ callback, name }) => {
     isConsume = true;
@@ -68,7 +72,7 @@ const dispatch = (type: string, data: IData) => {
 
 const GlobalStateType = "GlobalStateType";
 
-export const registerGlobalStateListener = (callback: IHandler["callback"], name: IHandler["name"]) => {
+export const registerFatherStateListener = (callback: IHandler["callback"], name: IHandler["name"]) => {
   registerListener(GlobalStateType, callback, name);
   //如果存在未消费的同类信息，在绑定成功是即触发一次
   const unConsumeEvent = get(unConsumeData, name, null);
@@ -78,7 +82,7 @@ export const registerGlobalStateListener = (callback: IHandler["callback"], name
   }
 };
 
-export const removeGlobalStateListener = (callback: IHandler["callback"]) => {
+export const removeFatherStateListener = (callback: IHandler["callback"]) => {
   removeListener(GlobalStateType, callback);
 };
 
@@ -89,11 +93,22 @@ export const removeGlobalStateListener = (callback: IHandler["callback"]) => {
  *    params:object
  * }
  */
-export const dispatchGlobalState = (data: IData) => {
-  setGlobalState && setGlobalState(data);
+const dispatchGlobalState = (data: IData) => {
+  setTimeout(() => {
+    if (get(data, "params") === undefined) {
+      data.params = {};
+    }
+    setGlobalState && setGlobalState(data);
+  }, 0);
+};
+
+export const sendStateToFather = (data: IData) => {
+  data.from = "child";
+  dispatchGlobalState(data);
 };
 
 const handleStateChange = (value: IData) => {
+  console.log("@@@@@@@@@@@@@@@ child global", value);
   dispatch(GlobalStateType, value);
 };
 

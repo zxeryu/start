@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "start": "webpack-dev-server",
+    "prepare": "tsc && lerna run prepare",
     "micro-father": "cd example/micro-father && webpack-dev-server",
     "micro-child": "cd example/micro-child && webpack-dev-server"
   },

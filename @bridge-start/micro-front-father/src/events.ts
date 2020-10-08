@@ -65,7 +65,7 @@ const dispatch = (type: TEventType, data: IData) => {
 };
 
 onGlobalStateChange((value, _) => {
-  console.log("############### father global", value);
+  // console.log("############### father global", value);
   dispatch("GlobalState", value as IData);
 });
 

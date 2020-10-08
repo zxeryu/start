@@ -108,7 +108,7 @@ export const sendStateToFather = (data: IData) => {
 };
 
 const handleStateChange = (value: IData) => {
-  console.log("@@@@@@@@@@@@@@@ child global", value);
+  // console.log("@@@@@@@@@@@@@@@ child global", value);
   dispatch(GlobalStateType, value);
 };
 

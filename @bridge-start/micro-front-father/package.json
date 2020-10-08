@@ -24,11 +24,9 @@
   "bugs": {
     "url": "https://github.com/zxeryu/start/issues"
   },
-  "dependencies": {
-    "qiankun": "^2.0.26"
-  },
   "peerDependencies": {
     "lodash": "4.x",
+    "qiankun": "2.x",
     "@babel/runtime": "*",
     "@babel/runtime-corejs3": "*",
     "core-js": "*",

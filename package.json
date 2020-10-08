@@ -19,7 +19,8 @@
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "qiankun": "^2.0.26"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

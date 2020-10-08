@@ -25,6 +25,10 @@
     "url": "https://github.com/zxeryu/start/issues"
   },
   "peerDependencies": {
-    "lodash": "4.x"
+    "lodash": "4.x",
+    "@babel/runtime": "*",
+    "@babel/runtime-corejs3": "*",
+    "core-js": "*",
+    "regenerator-runtime": "*"
   }
 }

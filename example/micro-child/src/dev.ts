@@ -1,4 +1,10 @@
-import { dispatchGlobalStateDev, IData, registerReturnStateListener, startDev } from "@bridge-start/micro-front-child";
+import {
+  dispatchGlobalStateDev,
+  IData,
+  isMicroEnv,
+  registerReturnStateListener,
+  startDev,
+} from "@bridge-start/micro-front-child";
 
 const mockInitParams = () => {
   dispatchGlobalStateDev({ name: "init", params: { name: "zx", from: "child-mock" } });
@@ -14,6 +20,9 @@ const handlerReturnMock = (data: IData) => {
 };
 
 export const mockDev = (mount: (_: any) => {}) => {
+  if (isMicroEnv()) {
+    return;
+  }
   startDev(mount);
   mockInitParams();
   registerReturnStateListener(handlerReturnMock);

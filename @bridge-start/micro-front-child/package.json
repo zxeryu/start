@@ -1,6 +1,6 @@
 {
   "name": "@bridge-start/micro-front-child",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "> TODO: description",
   "author": "zx <zxpstudy@163.com>",
   "homepage": "https://github.com/zxeryu/start#readme",
@@ -25,10 +25,10 @@
     "url": "https://github.com/zxeryu/start/issues"
   },
   "peerDependencies": {
-    "lodash": "4.x",
     "@babel/runtime": "*",
     "@babel/runtime-corejs3": "*",
     "core-js": "*",
+    "lodash": "4.x",
     "regenerator-runtime": "*"
   }
 }

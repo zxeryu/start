@@ -2,6 +2,18 @@
 
 > 基于 qinkun，提供与父应用的事件通信方式
 
+## Necessary
+
+```$xslt
+"lodash": "^4.x"
+```
+
+## Install
+
+```
+yarn add @bridge-start/micro-front-child
+```
+
 ## Usage 注册
 
 ```
@@ -28,7 +40,7 @@ export const unmount = async (props: any) => {
 import {
   sendStateToFather,            //向父应用发送事件
   registerFatherStateListener,  //注册接收父应用事件的监听
-  removeFatherStateListener,    //清楚事件
+  removeFatherStateListener,    //清除事件
 } from "@bridge-start/micro-front-child";
 
 export const ReceiveDemo = () => {

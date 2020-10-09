@@ -11,6 +11,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "prepare": "tsc && lerna run prepare",
+    "release": "lerna version --conventional-commits",
     "micro-father": "cd example/micro-father && webpack-dev-server",
     "micro-child": "cd example/micro-child && webpack-dev-server"
   },

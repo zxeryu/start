@@ -1,5 +1,6 @@
 import resolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
 import dts from "rollup-plugin-dts";
 
 export default [
@@ -18,6 +19,7 @@ export default [
       },
     ],
     plugins: [
+      commonjs(),
       resolve({
         extensions: [".ts", ".js"],
       }),
@@ -27,7 +29,7 @@ export default [
         extensions: [".ts", ".tsx", ".mjs", ".js", ".jsx"],
       }),
     ],
-    external: ["lodash", "qiankun"],
+    external: ["lodash"],
   },
   {
     input: "../../.tmp/@bridge-start/micro-front-father/index.d.ts",

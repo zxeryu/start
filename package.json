@@ -13,6 +13,7 @@
     "prepare": "tsc && lerna run prepare",
     "release": "lerna version --conventional-commits",
     "micro-father": "cd example/micro-father && webpack-dev-server",
+    "micro-father-v": "cd example/micro-father-vue && webpack-dev-server",
     "micro-child": "cd example/micro-child && webpack-dev-server",
     "micro-child-v": "cd example/micro-child-vue && webpack-dev-server"
   },

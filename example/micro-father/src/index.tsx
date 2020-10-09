@@ -12,6 +12,12 @@ registerApps([
     entry: `//localhost:3101`,
     activeRule: "/react",
   },
+  {
+    name: "vue-child",
+    container: "#sub",
+    entry: `//localhost:3102`,
+    activeRule: "/vue",
+  },
 ]);
 
 start();

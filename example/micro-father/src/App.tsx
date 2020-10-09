@@ -43,6 +43,7 @@ const Header = () => {
   return (
     <div>
       <button onClick={() => history.push("/react")}>react-child</button>
+      <button onClick={() => history.push("/vue")}>react-vue</button>
     </div>
   );
 };

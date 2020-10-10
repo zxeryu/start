@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/zxeryu/start/compare/@bridge-start/micro-front-father@0.1.0...@bridge-start/micro-front-father@0.2.0) (2020-10-10)
+
+### Features
+
+- **micro-father:** add loading lifecycle ([d0503f8](https://github.com/zxeryu/start/commit/d0503f83c7f903dd0341931ea78c730f0ae530bd))
+
 # 0.1.0 (2020-10-09)
 
 ### Bug Fixes

@@ -33,5 +33,6 @@
     "core-js": "*",
     "lodash": "4.x",
     "regenerator-runtime": "*"
-  }
+  },
+  "gitHead": "70bdcfa83e3058996636b8eec2a6acf0b9f04903"
 }

@@ -1,25 +1,43 @@
-import { registerMicroApps, start, setDefaultMountApp, runAfterFirstMounted, prefetchApps } from "qiankun";
+import { registerMicroApps, start, setDefaultMountApp, runAfterFirstMounted, prefetchApps, LoadableApp } from "qiankun";
 import { RegistrableApp } from "qiankun/es/interfaces";
 import { sendLifecycleEvent } from "./events";
+import { map } from "lodash";
+
+export type IDataApp = LoadableApp & { loading?: boolean };
 
 export const registerApps = (apps: Array<RegistrableApp>) => {
-  registerMicroApps(apps, {
-    beforeLoad: (app) => {
-      return Promise.resolve(sendLifecycleEvent("BeforeLoad", app));
+  registerMicroApps(
+    map(apps, (item) => {
+      if (!item.loader) {
+        item.loader = (loading) => {
+          sendLifecycleEvent("Loading", { ...item, loading });
+        };
+      }
+      return item;
+    }),
+    {
+      beforeLoad: (app) => {
+        sendLifecycleEvent("BeforeLoad", app);
+        return Promise.resolve();
+      },
+      beforeMount: (app) => {
+        sendLifecycleEvent("BeforeMount", app);
+        return Promise.resolve();
+      },
+      afterMount: (app) => {
+        sendLifecycleEvent("AfterMount", app);
+        return Promise.resolve();
+      },
+      beforeUnmount: (app) => {
+        sendLifecycleEvent("BeforeUnmount", app);
+        return Promise.resolve();
+      },
+      afterUnmount: (app) => {
+        sendLifecycleEvent("AfterUnmount", app);
+        return Promise.resolve();
+      },
     },
-    beforeMount: (app) => {
-      return Promise.resolve(sendLifecycleEvent("BeforeMount", app));
-    },
-    afterMount: (app) => {
-      return Promise.resolve(sendLifecycleEvent("AfterMount", app));
-    },
-    beforeUnmount: (app) => {
-      return Promise.resolve(sendLifecycleEvent("BeforeUnmount", app));
-    },
-    afterUnmount: (app) => {
-      return Promise.resolve(sendLifecycleEvent("AfterUnmount", app));
-    },
-  });
+  );
 };
 
 export { start, setDefaultMountApp, runAfterFirstMounted, prefetchApps };

@@ -1,14 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   sendStateToChild,
   registerChildStateListener,
   registerListener,
   removeChildStateListener,
   removeListener,
+  IDataApp,
 } from "@bridge-start/micro-front-father";
 import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory();
+
+const LoadingState = () => {
+  const [loading, setLoading] = useState<boolean | undefined>(undefined);
+  useEffect(() => {
+    const handleLoading = (app: IDataApp) => {
+      setLoading(app.loading);
+    };
+    registerListener("Loading", handleLoading);
+    return () => {
+      removeListener("Loading", handleLoading);
+    };
+  }, []);
+  return <div>{loading !== undefined && loading ? "加载中..." : "加载完成"}</div>;
+};
 
 const SendWhileMount = () => {
   useEffect(() => {
@@ -53,6 +68,7 @@ export const App = () => {
     <div>
       Father content
       <Header />
+      <LoadingState />
       <SendWhileMount />
       <FeedbackDemo />
     </div>

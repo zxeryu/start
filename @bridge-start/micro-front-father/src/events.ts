@@ -1,5 +1,6 @@
-import { initGlobalState, LoadableApp } from "qiankun";
+import { initGlobalState } from "qiankun";
 import { indexOf, forEach, isEmpty, get, map } from "lodash";
+import { IDataApp } from "./core";
 
 const { onGlobalStateChange, setGlobalState } = initGlobalState();
 
@@ -10,11 +11,18 @@ export interface IData {
 }
 
 export interface IHandler {
-  callback: (_: IData) => void;
+  callback: (_: any) => void;
   name?: string;
 }
 
-export type TEventType = "GlobalState" | "BeforeLoad" | "BeforeMount" | "AfterMount" | "BeforeUnmount" | "AfterUnmount";
+export type TEventType =
+  | "GlobalState"
+  | "BeforeLoad"
+  | "BeforeMount"
+  | "AfterMount"
+  | "BeforeUnmount"
+  | "AfterUnmount"
+  | "Loading";
 
 const handlers: {
   [_: string]: IHandler[];
@@ -91,7 +99,7 @@ export const sendStateToChild = (data: IData) => {
   dispatchGlobalState(data);
 };
 
-export const sendLifecycleEvent = (type: TEventType, app: LoadableApp) => {
+export const sendLifecycleEvent = (type: TEventType, app: IDataApp) => {
   forEach(handlers[type], ({ callback }) => {
     callback(app);
   });

@@ -39,13 +39,13 @@ const SendWhileMount = () => {
 };
 
 const FeedbackDemo = () => {
-  const handle = () => {
-    sendStateToChild({
-      name: "login",
-      params: { token: `token${new Date().getTime()}`, from: "father" },
-    });
-  };
   useEffect(() => {
+    const handle = () => {
+      sendStateToChild({
+        name: "login",
+        params: { token: `token${new Date().getTime()}`, from: "father" },
+      });
+    };
     registerChildStateListener(handle, "login-request");
     return () => {
       removeChildStateListener(handle);

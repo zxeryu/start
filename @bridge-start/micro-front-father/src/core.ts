@@ -40,4 +40,17 @@ export const registerApps = (apps: Array<RegistrableApp>) => {
   );
 };
 
+export const fixStyleLost = () => {
+  const originAppendChild = HTMLHeadElement.prototype.appendChild;
+  Object.defineProperty(HTMLHeadElement.prototype, "appendChild", {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    set() {}, // 使后来的重写操作失效
+    get() {
+      return (newChild: any) => {
+        return originAppendChild.call(this, newChild);
+      };
+    },
+  });
+};
+
 export { start, setDefaultMountApp, runAfterFirstMounted, prefetchApps };

@@ -29,7 +29,7 @@ export default [
         extensions: [".ts", ".tsx", ".mjs", ".js", ".jsx"],
       }),
     ],
-    external: ["lodash"],
+    external: ["lodash", "qiankun"],
   },
   {
     input: "../../.tmp/@bridge-start/micro-front-father/index.d.ts",

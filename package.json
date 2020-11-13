@@ -9,14 +9,16 @@
     "example/*"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "prepare": "tsc && lerna run prepare",
-    "release": "lerna version --conventional-commits",
-    "publish": "lerna publish from-git",
+    "l-create": "lerna create",
+    "l-bootstrap": "lerna bootstrap",
+    "l-release": "lerna version --conventional-commits",
+    "l-publish": "lerna publish from-git",
+    "l-prepare": "tsc && lerna run prepare",
     "micro-father": "cd example/micro-father && webpack-dev-server",
     "micro-father-v": "cd example/micro-father-vue && webpack-dev-server",
     "micro-child": "cd example/micro-child && webpack-dev-server",
-    "micro-child-v": "cd example/micro-child-vue && webpack-dev-server"
+    "micro-child-v": "cd example/micro-child-vue && webpack-dev-server",
+    "persist": "cd example/persist-demo && webpack-dev-server"
   },
   "dependencies": {
     "history": "^5.0.0",
@@ -24,6 +26,7 @@
     "qiankun": "^2.0.26",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rxjs": "^6.6.3",
     "uuid": "^8.3.0",
     "vue": "^2.6.12"
   },

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/zxeryu/start/compare/@bridge-start/micro-front-father@0.2.0...@bridge-start/micro-front-father@0.3.0) (2020-11-13)
+
+### Features
+
+- add fixStyleLost ([c78ee00](https://github.com/zxeryu/start/commit/c78ee00c251bb0241726b7bb29235b9bee677cde))
+
 # [0.2.0](https://github.com/zxeryu/start/compare/@bridge-start/micro-front-father@0.1.0...@bridge-start/micro-front-father@0.2.0) (2020-10-10)
 
 ### Features

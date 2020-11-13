@@ -1,6 +1,6 @@
 {
   "name": "@bridge-start/persist",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "> TODO: description",
   "author": "zx <zxpstudy@163.com>",
   "homepage": "https://github.com/zxeryu/start#readme",
@@ -31,8 +31,8 @@
     "@babel/runtime": "*",
     "@babel/runtime-corejs3": "*",
     "core-js": "*",
+    "lodash": "4.x",
     "regenerator-runtime": "*",
-    "rxjs": "6.x",
-    "lodash": "4.x"
+    "rxjs": "6.x"
   }
 }

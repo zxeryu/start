@@ -1,0 +1,38 @@
+{
+  "name": "@bridge-start/persist",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "zx <zxpstudy@163.com>",
+  "homepage": "https://github.com/zxeryu/start#readme",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxeryu/start.git"
+  },
+  "scripts": {
+    "prepare": "rollup -c rollup.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/zxeryu/start/issues"
+  },
+  "dependencies": {
+    "localforage": "^1.9.0"
+  },
+  "peerDependencies": {
+    "@babel/runtime": "*",
+    "@babel/runtime-corejs3": "*",
+    "core-js": "*",
+    "regenerator-runtime": "*",
+    "rxjs": "6.x",
+    "lodash": "4.x"
+  }
+}

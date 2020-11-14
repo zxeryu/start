@@ -25,7 +25,7 @@
     "url": "https://github.com/zxeryu/start/issues"
   },
   "dependencies": {
-    "qiankun": "^2.0.26"
+    "qiankun": "^2.2.3"
   },
   "peerDependencies": {
     "@babel/runtime": "*",

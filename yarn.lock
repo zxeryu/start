@@ -7803,15 +7803,15 @@ q@^1.5.1:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-qiankun@^2.0.26:
-  version "2.0.26"
-  resolved "https://registry.yarnpkg.com/qiankun/-/qiankun-2.0.26.tgz#0061a3285db57dd26bd88a62f18436fb5f7740c0"
-  integrity sha512-5Hb1wwkRB0sxrVxAcMaN6i6FC9SqFQu/G3FUBsQl7fGCUO8RT6ejhpl4IpcyfLBLsHnplT9cyJX/Ldd0lGrAMw==
+qiankun@^2.2.3:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/qiankun/-/qiankun-2.3.1.tgz#9b9d6556a004787a809cf83b67ff486a3b86dd87"
+  integrity sha512-qC9pf9MwmxEwt9G+mjyK8j1zY3vifLlqRooz9TFruDrMenMqK6arG2aPw6t6VB53XAYLvyUm9zQcTxj5JwXOWA==
   dependencies:
     "@babel/runtime" "^7.10.5"
     import-html-entry "^1.9.0"
     lodash "^4.17.11"
-    single-spa "^5.3.1"
+    single-spa "5.8.1"
     tslib "^1.10.0"
 
 qs@6.7.0:
@@ -8559,10 +8559,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-single-spa@^5.3.1:
-  version "5.6.1"
-  resolved "https://registry.yarnpkg.com/single-spa/-/single-spa-5.6.1.tgz#c541b2074860d357c35f34e06c903e638fbcabb5"
-  integrity sha512-EpN/RfS518UhAAgj6xauIFmYHqj/wy9FHHHGbT5+PI6cTaOxmWnQqfTtpb+Ape3SumIGaP65S4P56NCM64iXxg==
+single-spa@5.8.1:
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/single-spa/-/single-spa-5.8.1.tgz#86c2575e297e31d8f06945944ec97e31851a59ae"
+  integrity sha512-RlyLZ1IDIPdzI6mQPzCQnlgTt9jmbAXBZODmifoDut840wksPDSPhcSS8jXMpuUlqOidQiX2YuLVQSR9DEgsXw==
 
 slash@^2.0.0:
   version "2.0.0"

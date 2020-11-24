@@ -1,9 +1,40 @@
-import { registerMicroApps, start, setDefaultMountApp, runAfterFirstMounted, prefetchApps, LoadableApp } from "qiankun";
-import { RegistrableApp } from "qiankun/es/interfaces";
+import {
+  registerMicroApps,
+  start,
+  setDefaultMountApp,
+  runAfterFirstMounted,
+  prefetchApps,
+  LoadableApp,
+  loadMicroApp,
+} from "qiankun";
+import { FrameworkConfiguration, FrameworkLifeCycles, MicroApp, RegistrableApp } from "qiankun/es/interfaces";
 import { sendLifecycleEvent } from "./events";
 import { map } from "lodash";
 
 export type IDataApp = LoadableApp & { loading?: boolean };
+
+const lifeCycles: FrameworkLifeCycles<any> = {
+  beforeLoad: (app) => {
+    sendLifecycleEvent("BeforeLoad", app);
+    return Promise.resolve();
+  },
+  beforeMount: (app) => {
+    sendLifecycleEvent("BeforeMount", app);
+    return Promise.resolve();
+  },
+  afterMount: (app) => {
+    sendLifecycleEvent("AfterMount", app);
+    return Promise.resolve();
+  },
+  beforeUnmount: (app) => {
+    sendLifecycleEvent("BeforeUnmount", app);
+    return Promise.resolve();
+  },
+  afterUnmount: (app) => {
+    sendLifecycleEvent("AfterUnmount", app);
+    return Promise.resolve();
+  },
+};
 
 export const registerApps = (apps: Array<RegistrableApp>) => {
   registerMicroApps(
@@ -15,28 +46,7 @@ export const registerApps = (apps: Array<RegistrableApp>) => {
       }
       return item;
     }),
-    {
-      beforeLoad: (app) => {
-        sendLifecycleEvent("BeforeLoad", app);
-        return Promise.resolve();
-      },
-      beforeMount: (app) => {
-        sendLifecycleEvent("BeforeMount", app);
-        return Promise.resolve();
-      },
-      afterMount: (app) => {
-        sendLifecycleEvent("AfterMount", app);
-        return Promise.resolve();
-      },
-      beforeUnmount: (app) => {
-        sendLifecycleEvent("BeforeUnmount", app);
-        return Promise.resolve();
-      },
-      afterUnmount: (app) => {
-        sendLifecycleEvent("AfterUnmount", app);
-        return Promise.resolve();
-      },
-    },
+    lifeCycles,
   );
 };
 
@@ -51,6 +61,13 @@ export const fixStyleLost = () => {
       };
     },
   });
+};
+
+export const loadApp = <T extends object = {}>(
+  app: LoadableApp<T>,
+  configuration?: FrameworkConfiguration,
+): MicroApp => {
+  return loadMicroApp(app, configuration, lifeCycles);
 };
 
 export { start, setDefaultMountApp, runAfterFirstMounted, prefetchApps };

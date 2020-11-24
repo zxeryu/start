@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   sendStateToChild,
   registerChildStateListener,
@@ -6,6 +6,7 @@ import {
   removeChildStateListener,
   removeListener,
   IDataApp,
+  loadApp,
 } from "@bridge-start/micro-front-father";
 import { createBrowserHistory } from "history";
 
@@ -63,6 +64,30 @@ const Header = () => {
   );
 };
 
+const HandleMicroApp = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const app = loadApp({ name: "child-react", container: ref.current!, entry: `//localhost:3102` });
+
+    return () => {
+      app.unmount();
+    };
+  }, []);
+
+  return <div ref={ref} style={{ width: "100%", height: 600 }} />;
+};
+
+const OperateMicro = () => {
+  const [loaded, setLoaded] = useState<boolean>(false);
+  return (
+    <div>
+      <button onClick={() => setLoaded((prevState) => !prevState)}>{loaded ? "loaded" : "unloaded"}</button>
+      {loaded && <HandleMicroApp />}
+    </div>
+  );
+};
+
 export const App = () => {
   return (
     <div>
@@ -71,6 +96,7 @@ export const App = () => {
       <LoadingState />
       <SendWhileMount />
       <FeedbackDemo />
+      <OperateMicro />
     </div>
   );
 };

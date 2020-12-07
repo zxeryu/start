@@ -1,12 +1,28 @@
 import { forEach, isNull, isUndefined, keys, map, size, startsWith } from "lodash";
-import { createInstance, LOCALSTORAGE } from "localforage";
+import LocalForage, { createInstance, LOCALSTORAGE } from "localforage";
 import { BehaviorSubject } from "rxjs";
 import { persistFromRx } from "./rx";
 
 export type TData = { [key: string]: any };
 
+interface LocalForageDbInstanceOptions {
+  name?: string;
+
+  storeName?: string;
+}
+
+interface LocalForageOptions extends LocalForageDbInstanceOptions {
+  driver?: string | string[];
+
+  size?: number;
+
+  version?: number;
+
+  description?: string;
+}
+
 export class Storage {
-  s!: LocalForage;
+  s!: typeof LocalForage;
 
   constructor(opts: LocalForageOptions) {
     this.s = createInstance(opts);

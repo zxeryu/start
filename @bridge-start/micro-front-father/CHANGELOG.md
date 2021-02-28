@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/zxeryu/start/compare/@bridge-start/micro-front-father@0.4.1...@bridge-start/micro-front-father@0.4.2) (2021-02-28)
+
+**Note:** Version bump only for package @bridge-start/micro-front-father
+
 ## [0.4.1](https://github.com/zxeryu/start/compare/@bridge-start/micro-front-father@0.4.0...@bridge-start/micro-front-father@0.4.1) (2021-02-28)
 
 **Note:** Version bump only for package @bridge-start/micro-front-father

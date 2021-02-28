@@ -6,12 +6,13 @@ import {
   prefetchApps,
   LoadableApp,
   loadMicroApp,
+  ObjectType,
 } from "qiankun";
 import { FrameworkConfiguration, FrameworkLifeCycles, MicroApp, RegistrableApp } from "qiankun/es/interfaces";
 import { sendLifecycleEvent } from "./events";
 import { map } from "lodash";
 
-export type IDataApp = LoadableApp & { loading?: boolean };
+export type IDataApp = LoadableApp<ObjectType> & { loading?: boolean };
 
 const lifeCycles: FrameworkLifeCycles<any> = {
   beforeLoad: (app) => {
@@ -36,7 +37,7 @@ const lifeCycles: FrameworkLifeCycles<any> = {
   },
 };
 
-export const registerApps = (apps: Array<RegistrableApp>) => {
+export const registerApps = (apps: Array<RegistrableApp<ObjectType>>) => {
   registerMicroApps(
     map(apps, (item) => {
       if (!item.loader) {
